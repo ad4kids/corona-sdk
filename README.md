@@ -1,5 +1,6 @@
 corona-sdk
 ==========
+
 -- USAGE INSTRUCTIONS:
 --
 --      1 - Require the module using:
@@ -10,3 +11,5 @@ corona-sdk
 --
 --      3 - Show ads using: 
 --                  ad4kids.showAd()
+
+www.ad4kids.com
