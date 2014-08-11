@@ -151,7 +151,7 @@ local function newSession()
     print("El cuerpo de la llamada es " .. body )
     local params = {}
           params.body = body
-    local URL = "http://api.ad4kids.com"
+    local URL = "http://api.adloopnetworks.com"
           network.request( URL, "POST", function() print( "New session" ) end, params )
 -- ------------------------------------
 end
@@ -165,7 +165,7 @@ local function impression()
     local params = {}
           params.body = impressURL .. body
           print( "El cuerpo de la llamada es " .. params.body )
-    local URL = "http://api.ad4kids.com"
+    local URL = "http://api.adloopnetworks.com"
           network.request( URL, "POST", function() print( "New Impression" ) end, params )
 -- ------------------------------------
 end
@@ -179,7 +179,7 @@ local function clickAd()
     local params = {}
           params.body = clickURL .. body
           print( "El cuerpo de la llamada es " .. params.body )
-    local URL = "http://api.ad4kids.com"
+    local URL = "http://api.adloopnetworks.com"
           network.request( URL, "POST", function( event ) print( "New CLICK" ) end, params )
 -- ------------------------------------
 end
@@ -206,7 +206,7 @@ local function downloadSealSafe( event )
         end
     end
 
-    network.download( "http://api.ad4kids.com/resources/Seal_sharp_150wide_tm.png", "GET", imageListener, "kidsSafe.png", system.TemporaryDirectory )
+    network.download( "http://api.adloopnetworks.com/resources/Seal_sharp_150wide_tm.png", "GET", imageListener, "kidsSafe.png", system.TemporaryDirectory )
 -- ------------------------------------
 end
 -- ------------------------------------
@@ -340,7 +340,7 @@ local function networkListener( event ) -- Manage the network request and interp
         if kidsSafe then certified = true end
 
         -- Once we have the ad image & url, show the ad
-        if isTest then imgUrl = "http://api.ad4kids.com/resources/test-ad.png" imgName = "test-ad.png" 
+        if isTest then imgUrl = "http://api.adloopnetworks.com/resources/test-ad.png" imgName = "test-ad.png" 
         else imgName = string.sub( imgUrl, 64 )
         end
         
@@ -381,7 +381,7 @@ ad4kids.init = function( id )
             local body = "v=6&cnv=1&app_api_id="..appID.."&action=new_session"..paramData
             local params = {}
                   params.body = body
-            local URL = "http://api.ad4kids.com"
+            local URL = "http://api.adloopnetworks.com"
             -- Perform the call
             network.request( URL, "POST", networkListenerInit, params)
         else
@@ -403,7 +403,7 @@ ad4kids.showAd = function()
         print("El cuerpo de la llamada es " .. body )
         local params = {}
               params.body = body
-        local URL = "http://api.ad4kids.com"
+        local URL = "http://api.adloopnetworks.com"
               network.request( URL, "POST", networkListener, params )
     else
         print( "Already showing an ad" )
